@@ -1,0 +1,9 @@
+# Requirements for pip, Travis and ReadTheDocs.org
+#-------------------------------------------------
+# pip reads this file via 'setup.py', filtering
+#   out comments and 'nose'
+# This file is specified in the project settings 
+# at ReadTheDocs.org and in .travis.yml
+#-------------------------------------------------
+numpy
+nose
