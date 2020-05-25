@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 #
-# This file is part of the pyFDA project hosted at https://github.com/chipmuenk/pyfda
+# This file is part of the pyfixp project hosted at https://github.com/chipmuenk/pyfixp
 #
-# Copyright © pyFDA Project Contributors
+# Copyright © Christian Muenker
 # Licensed under the terms of the MIT License
-# (see file LICENSE in root directory for details)
+# (see file LICENSE.txt in root directory for details)
 
 """
-Store the version number here for setup.py and pyfdax.py
+Store the version number here for setup.py and pyfixp.py
 """
 
-__version__ = '0.3.1'
+__version__ = '0.9'

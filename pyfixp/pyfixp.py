@@ -12,6 +12,7 @@ numpy values and formatting reals in various formats
 import re
 import logging
 logger = logging.getLogger(__name__)
+from .version import __version__
 
 import numpy as np
 try:
@@ -24,8 +25,6 @@ except ImportError:
 
 # TODO: Absolute value for WI is taken, no negative WI specifications possible
 # TODO: Vectorization for hex / csd functions (frmt2float)
-
-__version__ = 0.9
 
 def bin2hex(bin_str, WI=0):
     """
@@ -357,7 +356,7 @@ class Fixed(object):
 
     scale : float
         The factor between integer fixpoint representation and the floating point
-        value, RWV = FXP / scale. By default, scale = 1 << WI. 
+        value, RWV = FXP / scale. By default, scale = 1 << WI.
 
         Examples:
             WI.WF = 3.0, FXP = "b0110." = 6,   scale = 8 -> RWV = 6 / 8   = 0.75
@@ -374,7 +373,7 @@ class Fixed(object):
 
     ovr_flag : integer or integer array (same shape as input argument)
         overflow flag, meaning:
-            
+
                         0 : no overflow
 
                         +1: positive overflow
@@ -658,7 +657,7 @@ class Fixed(object):
              # round towards nearest int
         elif self.quant == 'dsm':
             if DS:
-                # Synthesize DSM loop filter, 
+                # Synthesize DSM loop filter,
                 # TODO: parameters should be adjustable via quantizer dict
                 H = synthesizeNTF(order=3, osr=64, opt=1)
                 # Calculate DSM stream and shift/scale it from -1 ... +1 to
@@ -668,7 +667,7 @@ class Fixed(object):
                 # v: quantizer output (-1 or 1)
                 # xn: modulator states.
                 # xmax: maximum value that each state reached during simulation
-                # y: The quantizer input (ie the modulator output). 
+                # y: The quantizer input (ie the modulator output).
             else:
                 raise Exception('"deltasigma" Toolbox not found.\n'
                                 'Try installing it with "pip install deltasigma".')

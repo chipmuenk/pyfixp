@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 # version_nr contains ... well ... the version in the form  __version__ = '0.1b10'
 version_nr = {}
-with open(path.join(here, 'pyfda/version.py'), encoding='utf-8') as f_v:
+with open(path.join(here, 'pyfixp/version.py'), encoding='utf-8') as f_v:
     exec(f_v.read(), version_nr)
 
 # --- read requirements.txt, remove comments and unneeded modules
@@ -66,33 +66,18 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ],
-    # automatically find top-level package and sub-packages input_widgets,
-    # plot_widgets etc.:
-    packages = find_packages(exclude=('contrib', 'docs', 'test')),
+    # automatically find top-level package and sub-packages
+    packages = find_packages(exclude=('doc', 'test')),
     # Read information from MANIFEST.in
     include_package_data = True,
     # add additional data files (= non *.py) for package / subpackages relative
-    # to package directory, include 'qrc_resources.py' instead of 'images/icons/*',
-    # ('qrc_resources.py','version.py' are automatically installed).
-    ## package_data={'pyfda': ['pyfda_log.conf', 'pyfda.conf']},
-    # https://stackoverflow.com/questions/2026876/packaging-python-applications-with-configuration-files
-    # include files that get installed OUTSIDE the package
-    ## data_files = [('', ['README.rst']), ('', ['LICENSE'])],
-    # Required modules
-#    install_requires = [
-#        'numpy',
-#        'scipy',
-#        'matplotlib',
-#        'pyqt5',
-#        'docutils',
-#        'migen'
-#        ],
+    # to package directory
 
     # link the executable pyfixp to running the python function main() in the
-    # pyfdax module, with and without an attached terminal:
+    # pyfdax module, with an attached terminal:
     entry_points = {
         'console_scripts': [
-            'pyfdax = pyfda.pyfdax:main',
+            'pyfixp = pyfixp.pyfixp:main',
         ]
     }
 )
