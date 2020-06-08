@@ -9,6 +9,7 @@ Most routines operate on scalars and arrays alike, currently the following opera
 - Wrap-around or saturation behaviour for overflows
 - Conversion of binary, hex, decimal, CSD format strings
 
+![Screenshot](img/pyfixp_screenshot.png)
 
 ## Example
 Conversion is controlled with dictionaries, in the following example a quantizer is defined with an output format of 0 integer bits and 3 fractional bits, overflows are wrapped around in two's complement style ("wrap") and additional fractional bits are simply truncated ("floor"):
