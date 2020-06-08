@@ -1,11 +1,12 @@
 # pyfixp
-A fast fixpoint library building upon numpy.
+A fast fixpoint library utilizing numpy.
 
 This library was originally created for the Python Filter Design and Analysis [pyFDA](https://github.org/chipmuenk/pyfda) project but can also be used standalone.
 
 Most routines operate on scalars and arrays alike, currently the following operations are supported:
 
-- (Re)Quantization of 
+- (Re)Quantization ('floor', 'round', 'fix')
+- Wrap-around or saturation behaviour for overflows
 - Conversion of binary, hex, decimal, CSD format strings
 
 
