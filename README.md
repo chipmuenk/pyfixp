@@ -21,5 +21,6 @@ Conversion is controlled with dictionaries, in the following example a quantizer
     for i in np.arange(12)/10:               # i = 0, 0.1, 0.2, ...
         print("q<{0:>3.2f}> = {1:>5.3f}".format(i, Q.fixp(i))) # quantize i
 
+More examples can be found in the doc folder. 
 
 The options can be seen by entering `fx.Fixed?` in the notebook.
