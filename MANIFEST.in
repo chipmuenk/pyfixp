@@ -1,7 +1,8 @@
+include pyfixp/*.*
 include README.md
 include AUTHORS.md
 include LICENSE
 
-include pyfixp/doc/*.*
-include pyfixp/doc/img/*.png
+include doc/*.*
+include doc/img/*.png
 include requirements.txt
