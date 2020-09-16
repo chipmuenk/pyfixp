@@ -6,14 +6,19 @@ This library was originally created for the Python Filter Design and Analysis
 
 Most routines operate on scalars and arrays alike, currently the following operations are supported:
 
-- (Re)Quantization ('floor', 'round', 'fix')
-- Wrap-around or saturation behaviour for overflows ('wrap' or 'sat')
+- (Re)Quantization ('floor', 'round', 'fix') with two's complement wrap around ('wrap') 
+  or saturation behaviour ('sat' ) 
 - Conversion of binary, hex, decimal, CSD format strings to float and vice versa
 
 ![Screenshot](img/pyfixp_screenshot.png)
 
+(Re-)quantizers read and write numpy scalars and arrays,
+allowing easy interfacing to e. g. float stimuli and matplotlib plotting. 
+Fixpoint and format conversion behaviour and the number of integer 
+and fractional bits is controlled with dictionaries. 
+
 ## Example
-Conversion is controlled with dictionaries, in the following example a quantizer 
+In the following example a quantizer 
 is defined with an output format of 0 integer bits and 3 fractional bits, 
 overflows are wrapped around in two's complement style ("wrap") and additional 
 fractional bits are simply truncated ("floor"):
