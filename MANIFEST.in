@@ -1,4 +1,7 @@
 include README.md
 include AUTHORS.md
 include LICENSE
+
+include pyfixp/doc/*.*
+include pyfixp/doc/img/*.png
 include requirements.txt
