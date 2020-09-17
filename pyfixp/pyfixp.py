@@ -382,6 +382,9 @@ class Fixed(object):
 
         has occured during last fixpoint conversion
 
+    N_data : integer
+        total number of processed data points
+
     N_over : integer
         total number of overflows
 
@@ -578,20 +581,20 @@ class Fixed(object):
             self.ovr_flag = np.zeros(y.shape, dtype = int)
 
             if np.issubdtype(y.dtype, np.number): # numpy number type
-                self.N += y.size
+                self.N_data += y.size
             elif y.dtype.kind in {'U', 'S'}: # string or unicode
                 try:
                     y = y.astype(np.float64) # try to convert to float
-                    self.N += y.size
+                    self.N_data += y.size
                 except (TypeError, ValueError):
                     try:
                         np.char.replace(y, ' ', '') # remove all whitespace
                         y = y.astype(complex) # try to convert to complex
-                        self.N += y.size * 2
+                        self.N_data += y.size * 2
                     except (TypeError, ValueError) as e: # try converting elements recursively
                         y = np.asarray(list(map(lambda y_scalar:
                             self.fixp(y_scalar, scaling=scaling), y))) # was: list()
-                        self.N += y.size
+                        self.N_data += y.size
             else:
                 logger.error("Argument '{0}' is of type '{1}',\n"
                              "cannot convert to float.".format(y, y.dtype))
@@ -617,7 +620,7 @@ class Fixed(object):
                         y = 0.0
             over_pos = over_neg = yq = 0
             self.ovr_flag = 0
-            self.N += 1
+            self.N_data += 1
 
         # convert pseudo-complex (imag = 0) and complex values to real
         y = np.real_if_close(y)
@@ -726,11 +729,10 @@ class Fixed(object):
 #------------------------------------------------------------------------------
     def resetN(self):
         """ Reset counter and overflow-counters of Fixed object"""
-        self.N = 0
-        self.N_points = 0
-        self.N_over = 0
-        self.N_over_neg = 0
-        self.N_over_pos = 0
+        self.N_data = 0     # total number of data points
+        self.N_over = 0     # total number of overflows
+        self.N_over_neg = 0 # number of negative overflows
+        self.N_over_pos = 0 # number of positive overflows
 
 
 #------------------------------------------------------------------------------
