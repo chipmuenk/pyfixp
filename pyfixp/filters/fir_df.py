@@ -105,6 +105,9 @@ class FIR_DF(fx.Fixed):
 
     def fxfilter(self, b, x, zi=None):
         """
+        TODO: When len(x) < len(b), only zeros are returned because the for loop
+        is never executed
+        
         Calculate FIR filter (direct form) response via difference equation with
         quantization
 
@@ -151,7 +154,7 @@ class FIR_DF(fx.Fixed):
         self.xi = np.concatenate((self.xi, x))[-self.N:] # store last N inputs
         self.N_over_filt = self.Q_acc.N_over + self.Q_mul.N_over
 
-        return yq
+        return yq[:len(x)]
 
 
 # nested loop would be much slower!
