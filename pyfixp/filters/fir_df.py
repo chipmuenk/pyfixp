@@ -144,7 +144,11 @@ class FIR_DF(fx.Fixed):
             else:
                 self.xi = zi[:len(b)]
 
-
+        if len(x) <= len(self.b):
+            for k in range(len(x)):
+                # weighted state-vector x at time k:
+                self.xbq = self.Q_mul.fixp(np.concatenate((self.xi, x))[k:k + len(self.b)] * self.b)                
+        
         yq = np.zeros(len(x))
         for k in range(len(x) - len(self.b)):
             # weighted state-vector x at time k:
