@@ -8,7 +8,8 @@ Most routines operate on scalars and arrays alike, currently the following opera
 
 - (Re)Quantization ('floor', 'round', 'fix') with two's complement wrap around ('wrap') 
   or saturation behaviour ('sat' ) 
-- Conversion of binary, hex, decimal, CSD format strings to float and vice versa
+- Conversion of binary, hex, decimal, Canonical-Signed-Digit (CSD) format strings to float and vice versa
+- A basic direct form FIR filter in the submodule `pyfixp.filters`
 
 ![Screenshot](img/pyfixp_screenshot.png)
 
@@ -32,9 +33,9 @@ fractional bits are simply truncated ("floor"):
 
 The options are shown by entering `fx.Fixed?` in the notebook.
 
-More examples can be found in the `doc` subdirectory containing a.o. the Jupyter notebooks
+More examples can be found in the  the Jupyter notebooks of the `doc` subdirectory.
 
 - [intro_pyfixp.ipynb: ](doc/intro_pyfixp.ipynb) An introduction to using pyfixp for quantizing and saturating signals
-- [fixpoint_filters.ipynb: ](doc/fixpoint_filters.ipynb) An introduction to fixpoint filters and how to implement them with pyfixp
+- [fixpoint_filters.ipynb: ](doc/fixpoint_filters.ipynb) An introduction to fixpoint filters and how to implement them with pyfixp (work in progress)
 
 
