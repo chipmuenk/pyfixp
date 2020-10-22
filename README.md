@@ -30,6 +30,11 @@ fractional bits are simply truncated ("floor"):
     for i in np.arange(12)/10:               # i = 0, 0.1, 0.2, ...
         print("q<{0:>3.2f}> = {1:>5.3f}".format(i, Q.fixp(i))) # quantize i
 
-More examples can be found in the doc folder containing a Jupyter notebook. 
+The options are shown by entering `fx.Fixed?` in the notebook.
 
-The options can be seen by entering `fx.Fixed?` in the notebook.
+More examples can be found in the `doc` subdirectory containing a.o. the Jupyter notebooks
+
+- [intro_pyfixp.ipynb: ](doc/intro_pyfixp.ipynb) An introduction to using pyfixp for quantizing and saturating signals
+- [fixpoint_filters.ipynb: ](doc/fixpoint_filters.ipynb) An introduction to fixpoint filters and how to implement them with pyfixp
+
+
