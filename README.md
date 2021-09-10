@@ -39,6 +39,6 @@ More examples can be found in the  the Jupyter notebooks of the `doc` subdirecto
 - [intro_pyfixp.ipynb: ](doc/intro_pyfixp.ipynb) An introduction to using pyfixp for quantizing and saturating signals
 - [fixpoint_filters.ipynb: ](doc/fixpoint_filters.ipynb) An introduction to fixpoint filters and how to implement them with pyfixp (work in progress)
 
-You can use the notebooks interactively using the Binder service: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/chipmuenk/pyfixp/HEAD?urlpath=doc)
+You can use the notebooks interactively using the Binder service: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/chipmuenk/pyfixp/HEAD?urlpath=lab/tree/doc)
 
 
