@@ -2,7 +2,13 @@
 A Python library for fast fixpoint arithmetics based on `numpy`.
 
 This library was originally created for the Python Filter Design and Analysis 
-[pyFDA](https://github.org/chipmuenk/pyfda) project but can also be used standalone.
+[pyfda](https://github.org/chipmuenk/pyfda) project but can also be used standalone.
+
+(Re-)quantizers read and write numpy scalars and arrays,
+allowing easy interfacing to e. g. float stimuli and matplotlib plotting. 
+Quantizers are instances of the `Fixed()`
+class, their quantization and saturation behaviour and the number of integer 
+and fractional bits is controlled with a dictionary.
 
 Most routines operate on scalars and arrays alike, currently the following operations are supported:
 
@@ -12,11 +18,6 @@ Most routines operate on scalars and arrays alike, currently the following opera
 - A basic direct form FIR filter in the submodule `pyfixp.filters`
 
 ![Screenshot](img/pyfixp_screenshot.png)
-
-(Re-)quantizers read and write numpy scalars and arrays,
-allowing easy interfacing to e. g. float stimuli and matplotlib plotting. 
-Fixpoint and format conversion behaviour and the number of integer 
-and fractional bits is controlled with dictionaries. 
 
 ## Example
 In the following example a quantizer 
@@ -37,5 +38,7 @@ More examples can be found in the  the Jupyter notebooks of the `doc` subdirecto
 
 - [intro_pyfixp.ipynb: ](doc/intro_pyfixp.ipynb) An introduction to using pyfixp for quantizing and saturating signals
 - [fixpoint_filters.ipynb: ](doc/fixpoint_filters.ipynb) An introduction to fixpoint filters and how to implement them with pyfixp (work in progress)
+
+You can use the notebooks interactively using the Binder service: 
 
 
