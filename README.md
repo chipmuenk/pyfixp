@@ -1,5 +1,5 @@
 # pyfixp
-A Python library for fast fixpoint arithmetics based on `numpy`.
+A `numpy` based Python library for fast fixpoint arithmetics.
 
 This library was originally created for the Python Filter Design and Analysis 
 [pyfda](https://github.org/chipmuenk/pyfda) project but can also be used standalone.
@@ -29,6 +29,8 @@ fractional bits are simply truncated ("floor"):
     q_dict = {'WI':0, 'WF': 3,               # number of integer / fractional bits
           'quant':'floor', 'ovfl': 'wrap'}   # quantization / overflow behaviour
     Q = fx.Fixed(q_dict)                     # instance of fixpoint class Fixed()
+    third_q = Q.fixp(1/3)
+    print(f"q<1/3> = {third_q}\n")
     for i in np.arange(12)/10:               # i = 0, 0.1, 0.2, ...
         print("q<{0:>3.2f}> = {1:>5.3f}".format(i, Q.fixp(i))) # quantize i
 
