@@ -1,21 +1,23 @@
 # pyfixp
-A Python library for fast fixpoint arithmetics based on `numpy`.
+A `numpy` based Python library for fast fixpoint arithmetics.
 
 This library was originally created for the Python Filter Design and Analysis 
-[pyFDA](https://github.org/chipmuenk/pyfda) project but can also be used standalone.
+[pyfda](https://github.org/chipmuenk/pyfda) project but can also be used standalone.
+
+(Re-)quantizers read and write numpy scalars and arrays,
+allowing easy interfacing to e. g. float stimuli and matplotlib plotting. 
+Quantizers are instances of the `Fixed()`
+class, their quantization and saturation behaviour and the number of integer 
+and fractional bits is controlled with a dictionary.
 
 Most routines operate on scalars and arrays alike, currently the following operations are supported:
 
 - (Re)Quantization ('floor', 'round', 'fix') with two's complement wrap around ('wrap') 
   or saturation behaviour ('sat' ) 
-- Conversion of binary, hex, decimal, CSD format strings to float and vice versa
+- Conversion of binary, hex, decimal, Canonical-Signed-Digit (CSD) format strings to float and vice versa
+- A basic direct form FIR filter in the submodule `pyfixp.filters`
 
 ![Screenshot](img/pyfixp_screenshot.png)
-
-(Re-)quantizers read and write numpy scalars and arrays,
-allowing easy interfacing to e. g. float stimuli and matplotlib plotting. 
-Fixpoint and format conversion behaviour and the number of integer 
-and fractional bits is controlled with dictionaries. 
 
 ## Example
 In the following example a quantizer 
@@ -27,9 +29,18 @@ fractional bits are simply truncated ("floor"):
     q_dict = {'WI':0, 'WF': 3,               # number of integer / fractional bits
           'quant':'floor', 'ovfl': 'wrap'}   # quantization / overflow behaviour
     Q = fx.Fixed(q_dict)                     # instance of fixpoint class Fixed()
+    third_q = Q.fixp(1/3)
+    print(f"q<1/3> = {third_q}\n")
     for i in np.arange(12)/10:               # i = 0, 0.1, 0.2, ...
         print("q<{0:>3.2f}> = {1:>5.3f}".format(i, Q.fixp(i))) # quantize i
 
-More examples can be found in the doc folder containing a Jupyter notebook. 
+The options are shown by entering `fx.Fixed?` in the notebook.
 
-The options can be seen by entering `fx.Fixed?` in the notebook.
+More examples can be found in the  the Jupyter notebooks of the `doc` subdirectory.
+
+- [intro_pyfixp.ipynb: ](doc/intro_pyfixp.ipynb) An introduction to using pyfixp for quantizing and saturating signals
+- [fixpoint_filters.ipynb: ](doc/fixpoint_filters.ipynb) An introduction to fixpoint filters and how to implement them with pyfixp (work in progress)
+
+You can use the notebooks interactively using the Binder service: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/chipmuenk/pyfixp/HEAD?urlpath=lab/tree/doc)
+
+
