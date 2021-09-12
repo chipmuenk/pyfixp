@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 
+# Jupyter Notebook backups
+.ipynb_checkpoints
+
 # C extensions
 *.so
 
